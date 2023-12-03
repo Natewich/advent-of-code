@@ -1,95 +1,163 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "./page.module.scss";
+import Link from "next/link";
+
+const data = [
+  {
+    1: {
+      stars: 2,
+      link: "/2023/day-1",
+    },
+  },
+  {
+    2: {
+      stars: 2,
+      link: "/2023/day-2",
+    },
+  },
+  {
+    3: {
+      disabled: true,
+    },
+  },
+  {
+    4: {
+      disabled: true,
+    },
+  },
+  {
+    5: {
+      disabled: true,
+    },
+  },
+  {
+    6: {
+      disabled: true,
+    },
+  },
+  {
+    7: {
+      disabled: true,
+    },
+  },
+  {
+    8: {
+      disabled: true,
+    },
+  },
+  {
+    9: {
+      disabled: true,
+    },
+  },
+  {
+    10: {
+      disabled: true,
+    },
+  },
+  {
+    11: {
+      disabled: true,
+    },
+  },
+  {
+    12: {
+      disabled: true,
+    },
+  },
+  {
+    13: {
+      disabled: true,
+    },
+  },
+  {
+    14: {
+      disabled: true,
+    },
+  },
+  {
+    15: {
+      disabled: true,
+    },
+  },
+  {
+    16: {
+      disabled: true,
+    },
+  },
+  {
+    17: {
+      disabled: true,
+    },
+  },
+  {
+    18: {
+      disabled: true,
+    },
+  },
+  {
+    19: {
+      disabled: true,
+    },
+  },
+  {
+    20: {
+      disabled: true,
+    },
+  },
+  {
+    21: {
+      disabled: true,
+    },
+  },
+  {
+    22: {
+      disabled: true,
+    },
+  },
+  {
+    23: {
+      disabled: true,
+    },
+  },
+  {
+    24: {
+      disabled: true,
+    },
+  },
+  {
+    25: {
+      disabled: true,
+    },
+  },
+];
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div>
+        <h1>
+          Advent of Code <span>2023</span>
+        </h1>
+        <nav className={styles.nav}>
+          {data.map((day, i) => {
+            console.log(day[i + 1]);
+            return (
+              <>
+                {day[i + 1].disabled ? (
+                  <a href="#" disabled>
+                    Day {i + 1}
+                  </a>
+                ) : (
+                  <Link stars={day[i + 1].stars} href={day[i + 1].link}>
+                    Day {i + 1}
+                  </Link>
+                )}
+              </>
+            );
+          })}
+        </nav>
       </div>
     </main>
-  )
+  );
 }

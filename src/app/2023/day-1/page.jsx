@@ -91,7 +91,6 @@ export default async function Day1() {
           }
         }
       }
-      console.log(buffer, data[i]);
 
       first = buffer[0];
       last = buffer[buffer.length - 1];
